@@ -3,7 +3,7 @@ const http = require("http");
 let notes = [
   {
     id: 1,
-    content: "HTML is easy",
+    content: "HTML is easy sencillo y facil",
     important: true,
   },
   {
