@@ -1,4 +1,7 @@
-const http = require("http");
+const express = require("express");
+const app = express() // creando  la aplicacion 
+
+//const http = require("http");
 
 let notes = [
   {
@@ -18,10 +21,16 @@ let notes = [
   },
 ];
 
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { "Content-Type": "application/json" });
-  response.end(JSON.stringify(notes));
-});
+//const app = http.createServer((request, response) => {
+//  response.writeHead(200, { "Content-Type": "application/json" });
+//  response.end(JSON.stringify(notes));
+//});
+
+app.get('/',(request, response)=>{// '/' significa entrar al dominio
+
+  response.send('<h1>hola mundo</h1>')
+
+})
 
 const PORT = 3001;
 app.listen(PORT);
