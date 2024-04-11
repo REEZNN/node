@@ -30,12 +30,23 @@ let notes = [
 app.get("/", (request, response) => {
   // '/' significa entrar al dominio
 
-  response.send("<h1>hola mundo</h1>");
+  response.send("<h1>hola mundoo</h1>");
 });
 app.get("/api/notes", (request, response) => {
   //nueva ruta,
 
   response.json(notes);
+});
+
+app.get("/api/notes/:id", (request, response) => {
+  const id = Number(request.params.id);
+  const note = notes.find((parametro) => parametro.id === id); //con el find busca el elemento
+
+  if (note) {
+    response.json(note);
+  } else {
+    response.status(404).end();
+  }
 });
 
 const PORT = 3001;
