@@ -39,7 +39,7 @@ app.get("/api/notes", (request, response) => {
 });
 
 app.get("/api/notes/:id", (request, response) => {
-  const id = Number(request.params.id);
+  const id = Number(request.params.id); //convierte el numero lo que contiene la ruta
   const note = notes.find((parametro) => parametro.id === id); //con el find busca el elemento
 
   if (note) {
@@ -47,6 +47,12 @@ app.get("/api/notes/:id", (request, response) => {
   } else {
     response.status(404).end();
   }
+});
+
+app.delete("/api/notes/:id", (request, response) => {
+  const id = Number(request.params.id);
+  notes =notes.filter(note=> note.id !== id)
+
 });
 
 const PORT = 3001;
