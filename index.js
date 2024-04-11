@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express() // creando  la aplicacion 
+const app = express(); // creando  la aplicacion
 
 //const http = require("http");
 
@@ -26,12 +26,20 @@ let notes = [
 //  response.end(JSON.stringify(notes));
 //});
 
-app.get('/',(request, response)=>{// '/' significa entrar al dominio
+//usandoi express
+app.get("/", (request, response) => {
+  // '/' significa entrar al dominio
 
-  response.send('<h1>hola mundo</h1>')
+  response.send("<h1>hola mundo</h1>");
+});
+app.get("/api/notes", (request, response) => {
+  //nueva ruta,
 
-})
+  response.json(notes);
+});
 
 const PORT = 3001;
-app.listen(PORT);
-console.log(`Server running on port ${PORT}`);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
